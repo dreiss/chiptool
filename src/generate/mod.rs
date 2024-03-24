@@ -80,7 +80,7 @@ pub fn render(ir: &IR, opts: &Options) -> Result<TokenStream> {
     root.items = TokenStream::new(); // Remove default contents
 
     let commit_info = {
-        let tmp = include_str!(concat!(env!("OUT_DIR"), "/commit-info.txt"));
+        let tmp = "";
 
         if tmp.is_empty() {
             " (untracked)"
@@ -90,8 +90,7 @@ pub fn render(ir: &IR, opts: &Options) -> Result<TokenStream> {
     };
 
     let doc = format!(
-        "Peripheral access API (generated using chiptool v{}{})",
-        env!("CARGO_PKG_VERSION"),
+        "Peripheral access API (generated using chiptool v{})",
         commit_info
     );
 
